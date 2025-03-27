@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: my-app
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:./target/order
+      driver-class-name: org.h2.Driver
+      username: sa
+  rabbitmq:
+    host: ${RABBIT_HOST:43.131.255.158}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USER:admin}
+    password: ${RABBIT_PASSWORD:admin}
+    virtual-host: ${RABBIT_VHOST:/}
+  data:
+    jdbc:
+      repositories:
+        enabled: true
+  amqp:
+    deserialization:
+      trust:
+        all: true
+server:
+  port: 9000
